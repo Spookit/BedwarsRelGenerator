@@ -1,0 +1,32 @@
+name: BedwarsRelGenerator
+version: 3.7.18
+main: thito.bedwarsrelgenerator.BWG
+softdepend:
+- BedwarsRel
+- Citizens
+commands:
+  bedwarsrelgenerator:
+    description: Main command of BedwarsRelGenerator
+    aliases:
+    - bwg
+    - bwrg
+    - bwgr
+  bedwarsselector:
+    description: BedwarsSelector
+    aliases:
+    - bedwars
+  trail:
+    description: Bedwars Projectile Trails
+    aliases:
+    - trails
+  bwgkit:
+    description: Kit Manager
+    aliases:
+    - bwgkits
+permissions:
+  bedwarsrelgenerator.admin:
+    description: Allows you to access Main command of BedwarsRelGenerator
+    default: op
+  bedwarsrelgenerator.use.trails:
+    description: Allows you to use projectile trails
+    default: op

@@ -1,0 +1,627 @@
+config-version: "3.7.18_release"
+tracker:
+  enabled: true
+  # Broadcaster Types (CASE SENSITIVE!)
+  # BossBar - on bossbar
+  # ActionBar - on action bar (1.11 +)
+  # Title - on title
+  #
+  # Note: If broadcaster type is invalid or not found
+  # it will automatically switched to BossBar (or ActionBar for 1.11+)
+  #
+  # Placeholders
+  # ${teamcolor} - The team color
+  # ${teamname} - The team name
+  # ${team} - The team name with color
+  # ${teamprefix} - The team prefix
+  # ${name} - The player name 
+  # ${bed_distance} - The bed distance
+  # ${tracked} - The tracked player
+  # ${tracked_distance} - The tracked player distance
+  # ${tracked_teamcolor} - The tracked team color
+  # ${tracked_teamname} - The tracked team name
+  # ${tracked_team} - The tracked team
+  # ${tracked_teamprefix} - The tracked team prefix
+  # ${tracking_timeleft} - The tracking time left
+  refresh-rate: 2 #ticks (20 ticks = 1 seconds)
+  broadcaster-bed-mode: ActionBar
+  # You can set same broadcaster type
+  broadcaster-tracking-mode: BossBar
+  bed-mode: "${teamcolor}&l${teamname} &eBed Distance: &d${bed_distance}"
+  tracking-mode: "&8[&a${tracking_timeleft}&8] &eYou are &d${tracked_distance} &eblocks far away from ${teamcolor}${tracked}"
+  tracking-mode-duration: 60 #seconds
+  # In order to show the tracker, the player must hold a compass
+  tracking-must-hold-compass: true
+  bed-must-hold-compass: false
+scoreboard-panel:
+  enabled: true
+  strings:
+    team-eliminated: "${teamcolor}&l${teamprefix} &f${teamname}: &c✘ &7${is_you}"
+    team-destroyed: "${teamcolor}&l${teamprefix} &f${teamname}: &a${teamplayers} &7${is_you}"
+    team-alive: "${teamcolor}&l${teamprefix} &f${teamname}: &a✔ &7${is_you}"
+    is-you: "&7YOU"
+    date: "dd/MM/yyyy"
+  refresh-ticks: 10 #ticks (20 ticks = 1 seconds)
+  frame-refresh-ticks: 80 #ticks (depends on refresh-ticks)
+  frames:
+  # Placeholders
+  # ${<placeholdername>}
+  #
+  # upgrade_time_<generatorname> - The upgrade time countdown for generator
+  # countdown_<generatorname> - The generator drop countdown time
+  # generator_level_<generatorname> - The current generator level name
+  # generator_nextlevel_<generatornam> - The next generator level name (will show "Maxed" if its on the max level)
+  # time_left - The game time left
+  # selected_kit - The selected kit ("&cNone" if not selected any kit)
+  # teams - Team strings iterator
+  # game - The game name
+  # date - The date
+  # players - Amount of players
+  # maxplayers - Max players
+  # minplayers - Min players
+  # remainplayers - Required players to start
+  # name - The player name
+  # health - The player health
+  # displayname - The player nick/displayname
+  # team - The team name with color
+  # teamcolor - The team color
+  # teamname - The team name
+  # teamplayers - The amount of team players
+  # teamplayer - The player team iterator
+  # teammaxplayers - The amount of team max players
+  # teamprefix - The first char of team name (example: Red -> R)
+  # bed_distance - The bed distance
+  # tracked - The tracked player
+  # tracked_distance - The tracked player distance
+  # tracked_team - The tracked team name with color
+  # tracked_teamname - The tracked team name
+  # tracked_teamcolor - The tracked team color
+  # tracking_timeleft - The tracking time left
+  
+  # Maximum 32 Chars! Including the string after placeholder replacement!
+    suspend:
+      - title: "&e&lBEDWARS"
+        lines:
+        - "Map: &a${game}"
+        - "Date: &a${date}"
+        - "&7"
+        - "Kit:"
+        - "&a${selected_kit}"
+        - "&8"
+        - "Team: &7(&b${teamplayers}&7/&b${teammaxplayers}&7)"
+        - "${teamcolor}&l${teamprefix} &f${teamplayer}"
+        - "${teamcolor}&l${teamprefix} &f${teamplayer}"
+        - "${teamcolor}&l${teamprefix} &f${teamplayer}"
+        - "${teamcolor}&l${teamprefix} &f${teamplayer}"
+        - "${teamcolor}&l${teamprefix} &f${teamplayer}"
+        - "${teamcolor}&l${teamprefix} &f${teamplayer}"
+        - "&9"
+        - "&ewww.spigotmc.org"
+    lobby:
+      - title: "&e&lBEDWARS"
+        lines:
+        - "Map: &a${game}"
+        - "Date: &a${date}"
+        - "&7"
+        - "Players: &a${players}/${maxplayers}"
+        - "&8"
+        - "&d&o${remainplayers} more player"
+        - "&d&oto start the game."
+        - "&9"
+        - "&ewww.spigotmc.org"
+    game:
+      - title: "&e&lBEDWARS"
+        lines:
+        - "&7${date}"
+        - "&8"
+        - "Iron ${generator_level_iron}:" 
+        - "&a${upgrade_time_iron}"
+        - "&7"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "&7"
+        - "&fKills: &b${stats_kill}"
+        - "&fBed Broken: &b${stats_bedbreak}"
+        - "&fFinal Kills: &b${stats_finalkill}"
+        - "&fKill Streak: &b${stats_killstreak}"
+        - "&fDeaths: &b${stats_dead}"
+        - "&9"
+        - "&ewww.spigotmc.org"
+      - title: "&e&lBEDWARS"
+        lines:
+        - "&7${date}"
+        - "&8"
+        - "Gold ${generator_level_gold}:" 
+        - "&a${upgrade_time_gold}"
+        - "&7"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "&7"
+        - "&fKills: &b${stats_kill}"
+        - "&fBed Broken: &b${stats_bedbreak}"
+        - "&fFinal Kills: &b${stats_finalkill}"
+        - "&fKill Streak: &b${stats_killstreak}"
+        - "&fDeaths: &b${stats_dead}"
+        - "&9"
+        - "&ewww.spigotmc.org"        
+      - title: "&e&lBEDWARS"
+        lines:
+        - "&7${date}"
+        - "&8"
+        - "Time Left:" 
+        - "&a${time_left}"
+        - "&7"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "${teams}"
+        - "&7"
+        - "&fKills: &b${stats_kill}"
+        - "&fBed Broken: &b${stats_bedbreak}"
+        - "&fFinal Kills: &b${stats_finalkill}"
+        - "&fKill Streak: &b${stats_killstreak}"
+        - "&fDeaths: &b${stats_dead}"
+        - "&9"
+        - "&ewww.spigotmc.org"
+kit-manager:
+  enabled: true
+# The plugin will never inject these arenas
+blacklisted-arenas:
+- example_arena
+game-cage:
+  enabled: true
+  # delay before the arena start
+  time: 10
+  cage: GLASS
+  center: BEACON
+  # in seconds (also depends on the distance, bigger the distance, longer the delay)
+  invincible-delay: 6
+  # Distance from team's spawn location (up)
+  distance: 30
+  # The time out time of kit selecting stage
+  kit-time: 20
+  kit-item:
+    display: "&a&lSELECT KIT"
+    type: CHEST
+    lore: 
+    - "Click here or interact using this item to open kit selector"
+game-selector:
+  permission: "bedwarsrelgenerator.selector"
+  title-category: "&8&m--&1 Bedwars Game Category &8&m--"
+  title-game: "&8&m--&1 Bedwars Games - <category> &8&m--"
+  game-item-waiting:
+      type: "BED"
+      display: "&8[ &a<name> &8]"
+      lore:
+      - "&7Click here to play"
+      - "&7"
+      - "&7Time: &b<time>"
+      - "&7Players: &b<players>/<max>"
+      - "&e&o* Requires <remains> players to start!"
+  game-item-running:
+      type: "BED"
+      display: "&8[ &d<name> &8]"
+      lore:
+      - "* Currently Playing *"
+      - "&7Click here to spectate!"
+      - "&7"
+      - "&7Players: &b<players>/<max>"
+      - "&7Time Left: &b<timeleft>"
+  game-item-stopped:
+      type: "BED"
+      display: "&8[ &c<name> &8]"
+      lore:
+      - "&7- Unavailable -"
+  category-item:
+      type: BED
+      display: "&8&l>&a <category> &8&l<"
+      lore:
+      - "&7Available Games: &b<games>"
+team-upgrades-handler:
+  enabled: true
+  title: "&8&m--&1 Team Upgrades &8&m--"
+  not-enough: "&cYou don't have enough item to buy this!"
+  purchased: "&ePurchased upgrade: {0} to level {1}"
+  npc-skins:
+  - Notch
+  - Steve
+  - Alex
+  - jeb_
+  npc-types:
+  - COW
+  - PLAYER
+  - BLAZE
+  - SHEEP
+  - ZOMBIE
+  - SKELETON
+  - WITHER_SKELETON
+  - HUSK
+  - CREEPER
+  - ENDERMAN
+  - IRON_GOLEM
+  - WITCH
+  - SNOWMAN
+  - MUSHROOM_COW
+  - PIG
+  - PIG_ZOMBIE
+arena-handler:
+  # in seconds
+  respawn-delay: 5
+  death-item-drops:
+  - "GOLD_INGOT"
+  - "IRON_INGOT"
+  - "BRICK"
+  death-item-message: "&eYou got &b{0}x {1} &efrom killing &a{2}"
+  max-death-drops: 20
+  titles:
+    bed-destroy:
+      enabled: true
+      title: "&c&lBED DESTROYED"
+      subtitle: "&eYour Bed has been Destroyed!"
+    died:
+      enabled: true
+      interval: 3
+      titles:
+      - "&c&lY   O   U       D   I   E   D"
+      - "&c&lY  O  U     D  I  E  D"
+      - "&c&lY O U   D I E D"
+      - "&c&lYOU DIED"
+    respawn-count:
+      enabled: true
+      interval: 2
+      subtitles:
+      - "&eRespawned    in    {0}    seconds..."
+      - "&eRespawned   in   {0}   seconds..."
+      - "&eRespawned  in  {0}  seconds..."
+      - "&eRespawned in {0} seconds..."
+    respawned:
+      enabled: true
+      title: 
+      - "&a&lR      E      S       P      A      W      N      E      D"
+      - "&a&lR     E     S     P     A     W     N     E     D"
+      - "&a&lR    E    S    P    A    W    N    E    D"
+      - "&a&lR   E   S   P   A   W   N   E   D"
+      - "&a&lR  E  S  P  A  W  N  E  D"
+      - "&a&lR E S P A W N E D"
+      - "&a&lRESPAWNED"
+    kit-timeout:
+      enabled: true
+      subtitle: "&cKits timeout in {0} seconds..."
+    suspend-time:
+      enabled: true
+      subtitle: "&eStarts in &b{0} &eseconds..."
+    suspend-time-ready:
+      enabled: true
+      title: "&bStarts in {0} seconds..."
+      subtitle: "&eGet prepared for the battle!"
+    # This uses special title. Can be used for all titles!
+    arena-start:
+      enabled: true
+      # in ticks (20 ticks = 1 seconds)
+      interval: 3
+      # for animated title, please use "titles" instead of "title"
+      titles:
+      - "&a&lF     I     G     H     T     !"
+      - "&a&lF    I    G    H    T    !"
+      - "&a&lF   I   G   H   T   !"
+      - "&a&lF  I  G  H  T  !"
+      - "&a&lF I G H T !"
+      - "&a&lFIGHT!"
+    bed-trap-triggered:
+      enabled: true
+      title: "&6&lBED TRAP TRIGGERED!"
+  # deprecated
+  announcements: 
+    upgrades:
+      enabled: true
+      message: "&a[UPGRADES] {0} upgraded {1} Team Upgrade to level {2}!"
+upgrades:
+  bed-trap:
+    enabled: true
+    name: "Bed Trap Upgrades"
+    narrow-name: "Bed Trap"
+    icon: "PUMPKIN"
+    # Only for Bed Trap
+    triggered-message: "&6BED TRAP HAS BEEN TRIGGERED! Bed trap downgraded 1 level!"
+    levels:
+      no-trap:
+        name: "No Trap"
+        level: 0
+        effects: []
+        cost:
+          type: AIR
+          amount: 0
+        loadout: []
+      conf:
+        name: "Blindness"
+        level: 1
+        # only for BedTrap
+        radius: 7
+        effects:
+        - "BLINDNESS:2"
+        cost:
+          type: GOLD_INGOT
+          amount: 15
+        loadout: []
+  armor:
+    enabled: true
+    name: "Armor Upgrades"
+    narrow-name: "Armor"
+    icon: IRON_CHESTPLATE
+    levels:
+      defaulttier:
+        name: "Normal"
+        level: 0
+        effects: []
+        cost: 
+          type: AIR
+          amount: 0
+        # Warning! If loadout is not empty/setted, the upgrades will affect the loadout items only
+        loadout:
+        - "LEATHER_CHESTPLATE"
+      tier1:
+        name: "Tier I"
+        level: 1 
+        effects:
+        # Put all enchantments here (only for armor type)
+        - "PROTECTION_ENVIRONMENTAL:4"
+        cost:
+          type: IRON_INGOT
+          amount: 40
+        loadout:
+        - "LEATHER_CHESTPLATE"
+        - "LEATHER_LEGGINGS"
+      tier2:
+        name: "Tier II"
+        level: 2
+        effects:
+        - "PROTECTION_ENVIRONMENTAL:5"
+        - "PROTECTION_FIRE:1"
+        cost:
+          type: IRON_INGOT
+          amount: 90
+        loadout:
+        - "LEATHER_CHESTPLATE"
+        - "LEATHER_LEGGINGS"
+        - "LEATHER_BOOTS"
+      tier3:
+        name: "Tier III"
+        level: 3
+        effects:
+        - "PROTECTION_ENVIRONMENTAL:5"
+        - "PROTECTION_FIRE:1"
+        - "PROTECTION_PROJECTILE:1"
+        cost:
+          type: GOLD_INGOT
+          amount: 45
+        loadout:
+        - "LEATHER_HELMETS"
+        - "LEATHER_CHESTPLATE"
+        - "LEATHER_LEGGINGS"
+        - "LEATHER_BOOTS"
+  tool:
+    enabled: true
+    name: "Tool Upgrades"
+    narrow-name: "Tool"
+    icon: IRON_AXE
+    levels:
+      norm:
+        name: "- * ?? * -"
+        level: 0
+        effects: []
+        cost:
+          type: AIR
+          amount: 0
+      tier1:
+        name: "Tier I"
+        level: 1
+        effects:
+        - "DIG_SPEED:1"
+        loadout:
+        - "STONE_PICKAXE"
+        cost:
+          type: GOLD_INGOT
+          amount: 5
+      tier2:
+        name: "Tier II"
+        level: 2
+        effects:
+        - "DIG_SPEED:2"
+        loadout:
+        - "STONE_PICKAXE"
+        cost:
+          type: GOLD_INGOT
+          amount: 15
+  sword:
+    enabled: true
+    name: "Sword Upgrades"
+    narrow-name: "Sword"
+    icon: IRON_SWORD
+    levels:
+      defaultlvl:
+        name: "Normal"
+        level: 0
+        effects: []
+        cost:
+          type: AIR
+          amount: 0
+        # Default Items when spawned to the game
+        loadout:
+        - "WOODEN_SWORD"
+      tier1:
+        name: "Tier I"
+        level: 1
+        effects:
+        - "DAMAGE_ALL:1"
+        cost:
+          type: IRON_INGOT
+          amount: 50
+        loadout:
+        - "STONE_SWORD"
+      tier2:
+        name: "Tier II"
+        level: 2
+        effects:
+        - "DAMAGE_ALL:2"
+        cost:
+          type: GOLD_INGOT
+          amount: 10
+        loadout:
+        - "STONE_SWORD"
+      tier3:
+        name: "Tier III"
+        level: 3
+        effects:
+        - "DAMAGE_ALL:2"
+        - "KNOCKBACK:1"
+        cost:
+          type: GOLD_INGOT
+          amount: 25
+        loadout:
+        - "STONE_SWORD"
+      tier4:
+        name: "Tier IV"
+        level: 4
+        effects:
+        - "DAMAGE_ALL:3"
+        - "KNOCKBACK:1"
+        cost:
+          type: GOLD_INGOT
+          amount: 45
+        loadout:
+        - "IRON_SWORD"
+  beacon:
+    enabled: true
+    name: "Beacon Upgrades"
+    narrow-name: "Beacon"
+    icon: BEACON
+    levels:
+      normal:
+        name: "No Effect"
+        level: 0
+        effects: []
+        cost:
+          type: AIR
+          amount: 0
+      speed:
+        name: "Speed Up"
+        level: 1
+        effects:
+        # Put all potion effects here (only for beacon type)
+        - "SPEED:0"
+        cost:
+          type: GOLD_INGOT
+          amount: 25
+      jump:
+        name: "Jump Boost"
+        level: 2
+        effects:
+        - "JUMP:0"
+        - "SPEED:0"
+        cost:
+          type: GOLD_INGOT
+          amount: 57
+      heal:
+        name: "Healing"
+        level: 3
+        effects:
+        - "JUMP:0"
+        - "SPEED:0"
+        - "regeneration:0"
+        cost:
+          type: GOLD_INGOT
+          amount: 85
+bed-handler:
+  enabled: true
+  defend: "&a&lDEFEND YOUR BED!"
+  destroyed: "&c&lBED HAS BEEN DESTROYED"
+generator:
+  enabled: true
+  lines:
+  - "<typeprefix><type> GENERATOR"
+  - "&e<level> - Next Upgrade In <upgradecountdown>"
+  - "&7&oSpawned in &c<countdown>"
+  lines-maxed:
+  - "<typeprefix><type> GENERATOR"
+  - "&e<level> - Maxed"
+  - "&7&oSpawned in &c<countdown>"
+  messages:
+    level-max: "LEVEL MAXIMUM"
+    maxed: "Maxed"
+  levels:
+    TIER1:
+      name: "Tier I"
+      # in seconds
+      upgrade-countdown: 120 
+      level: 1
+      seconds-decreasement: 1
+    TIER2:
+      name: "Tier II"
+      level: 2
+      upgrade-countdown: 180
+      seconds-decreasement: 2
+    TIER3:
+      name: "Tier III"
+      level: 3
+      upgrade-countdown: 240
+      seconds-decreasement: 4
+    TIER4:
+      name: "Tier IV"
+      level: 4
+      # this is ignored cause this is the max level
+      upgrade-countdown: 300
+      seconds-decreasement: 6
+    GEAR1:
+      name: "Gear I"
+      upgrade-countdown: 150
+      level: 1
+      seconds-decreasement: 2
+    GEAR2:
+      name: "Gear II"
+      level: 2
+      upgrade-countdown: 210
+      seconds-decreasement: 3
+    GEAR3:
+      name: "Gear III"
+      level: 3
+      upgrade-countdown: 270
+      seconds-decreasement: 5
+  types:
+  # These things are BedwarsRel config based.
+  # In order to spawn a generator. Just add a Resource Spawner at BedwarsRel plugin.
+  # v THIS IS THE NAME OF THE RESOURCESPAWNER FROM BEDWARSREL CONFIG.YML
+    iron:
+      type-name: "IRON"
+      type-block: "IRON_BLOCK"
+      type-prefix: "&a&l"
+      interval: 20
+      levels:
+      - TIER1
+      - TIER2
+      - TIER3
+      - TIER4
+    gold:
+      type-name: "GOLD"
+      type-block: "GOLD_BLOCK"
+      type-prefix: "&a&l"
+      interval: 45
+      levels:
+      - GEAR1
+      - GEAR2
+      - GEAR3

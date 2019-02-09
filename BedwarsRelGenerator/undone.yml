@@ -1,0 +1,135 @@
+# This is undone feature
+item-shop:
+  enabled: true
+  shop:
+    blocks:
+      displayname: "&aBlocks"
+      lore:
+      - "&7All placeable items"
+      items:
+        # the item icon
+        WOOL:
+          # the displayname
+          display: "&aWool"
+          # the item
+          item:
+          - type: WOOL
+            amount: 2
+          # the item cost
+          cost: BRICK
+          # amount of required cost
+          price: 1
+        STAINED_GLASS:
+          display: "&aGlass"
+          item: 
+          - type: STAINED_GLASS
+            amount: 1
+          cost: BRICK
+          price: 1
+        SANDSTONE:
+          display: "&aSandstone"
+          item:
+          - type: SANDSTONE
+            amount: 2
+          cost: IRON_INGOT
+          price: 1
+        OAK_PLANKS:
+          display: "&aWood"
+          item:
+          - type: OAK_PLANKS
+            amount: 1
+          cost: IRON_INGOT
+          price: 1
+        END_STONE:
+          display: "End Stone"
+          item:
+          - type: END_STONE
+            amount: 1
+          cost: IRON_INGOT
+          price: 2
+        OBSIDIAN:
+          display: "Obsidian"
+          item:
+          - type: OBSIDIAN
+            amount: 1
+          cost: GOLD_INGOT
+          price: 1
+    armor:
+      displayname: "&aArmor"
+      lore:
+      - "&7Protection item"
+      items:
+        CHAINMAIL_BOOTS:
+          display: "&aChain Armor"
+          item:
+          - type: CHAINMAIL_HELMET
+            amount: 1
+          - type: CHAINMAIL_CHESTPLATE
+            amount: 1
+          - type: CHAINMAIL_LEGGINGS
+            amount: 1
+          - type: CHAINMAIL_BOOTS
+            amount: 1
+          cost: BRICK
+          price: 40
+        IRON_BOOTS:
+          display: "&aIron Armor"
+          item:
+          - type: IRON_HELMET
+            amount: 1
+          - type: IRON_CHESTPLATE
+            amount: 1
+          - type: IRON_LEGGINGS
+            amount: 1
+          - type: IRON_BOOTS
+            amount: 1
+          cost: IRON_INGOT
+          price: 20
+        DIAMOND_BOOTS:
+          display: "&aDiamond Armor"
+          item:
+          - type: DIAMOND_HELMET
+            amount: 1
+          - type: DIAMOND_CHESTPLATE
+            amount: 1
+          - type: DIAMOND_LEGGINGS
+            amount: 1
+          - type: DIAMOND_BOOTS
+            amount: 1
+          cost: GOLD_INGOT
+          price: 12
+    weapon:
+      displayname: "&aWeapons"
+      lore:
+      - "&7Weapon items"
+      items:
+        STONE_SWORD:
+          display: "&aStone Sword"
+          item:
+          - type: STONE_SWORD
+            amount: 1
+          cost: BRICK
+          price: 10
+        IRON_SWORD:
+          display: "&aIron Sword"
+          item:
+          - type: IRON_SWORD
+            amount: 1
+          cost: IRON_INGOT
+          price: 7
+        STICK:
+          display: "&aKnockback Stick"
+          item:
+          - type: STICK
+            amount: 1
+            enchantments:
+            - "KNOCKBACK:2"
+          cost: IRON_INGOT
+          price: 10
+        DIAMOND_SWORD:
+          display: "&aDiamond Sword"
+          item:
+          - type: DIAMOND_SWORD
+            amount: 1
+          cost: GOLD_INGOT
+          price: 8
